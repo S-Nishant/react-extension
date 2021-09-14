@@ -7,3 +7,10 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.todo {
+    cursor: pointer;
+}
+.strike {
+text-decoration: line-through;
+}
