@@ -3,6 +3,7 @@ import "./MainDashboard.css";
 import ToDoForm from './TodoForm';
 import TodoList from './TodoList';
 import data from "./data.json";
+import Clock from './Clock';
 function MainDashboard() {
     
   const [ toDoList, setToDoList ] = useState(data);
@@ -37,8 +38,15 @@ function MainDashboard() {
                         <iframe title="cal" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%234285F4&amp;ctz=Asia%2FKolkata&amp;src=s.nishant%40aitglobalinc.com&amp;color=%23039BE5&amp;showTz=1&amp;mode=WEEK&amp;showTabs=1"  height="520" width="100%" frameborder="0" scrolling="no"></iframe>
                     </div>
                     <div className="col-md-6">
-                    <ToDoForm addTask={addTask}/>
-                    <TodoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
+                    {/* <div className="row"> */}
+                    <div className="col-md-12">
+                        <Clock />                     
+                    </div>
+                    {/* </div> */}
+                    <div className="row">
+                        <ToDoForm addTask={addTask}/>
+                        <TodoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
+                    </div>
                     </div>
                 </div>
                 </div>
