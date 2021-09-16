@@ -8,27 +8,27 @@ function FooterLink() {
    <ul>
       <li>
         <span>Zoho</span>
-        <a href="https://www.zoho.com/people/"><img src="/icons/zohofavicon.ico"/></a>
+        <a href="https://www.zoho.com/people/"><img src="/icons/zohofavicon.ico" alt="" /></a>
       </li>
       <li>
         <span>Greythr</span>
-        <a href="https://aitglobal.greythr.com/"><img src="/icons/greythrFavicon.png"/></a>
+        <a href="https://aitglobal.greythr.com/"><img src="/icons/greythrFavicon.png"alt="" /></a>
       </li>
       <li>
          <span>Support Ticket</span>
-         <a href="https://ostic.aitglobalindia.com/"><img src="icons/osticfavicon.png"/></a>
+         <a href="https://ostic.aitglobalindia.com/"><img src="icons/osticfavicon.png"alt="" /></a>
       </li>
       <li>
          <span>LMS Portal</span>
-         <a href="https://lms.aitglobalindia.com/login/index.php"><img src="icons/lmsPortalFavicon.ico"/></a>
+         <a href="https://lms.aitglobalindia.com/login/index.php"><img src="icons/lmsPortalFavicon.ico"alt="" /></a>
       </li>
       <li>
          <span>Cafe AIT</span>
-         <a href="https://cafeait.aitglobalindia.com/login"><img src="icons/CafeAIt.png"/></a>
+         <a href="https://cafeait.aitglobalindia.com/login"><img src="icons/CafeAIt.png"alt="" /></a>
       </li>
       <li>
          <span>Google Meet</span>
-         <a href="https://meet.google.com/"><img src="icons/GmeetFavicon.png"/></a>
+         <a href="http://meet.new/1"><img src="icons/GmeetFavicon.png"alt="" /></a>
       </li>
    </ul>
  </div>
