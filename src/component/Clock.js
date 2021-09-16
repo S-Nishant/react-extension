@@ -3,7 +3,7 @@ import AnalogClock from 'analog-clock-react';
 
 function Clock() {
     let options = {
-        width: "150px",
+        width: "120px",
         border: true,
         borderColor: "#2e2e2e",
         baseColor: "#17a2b8",

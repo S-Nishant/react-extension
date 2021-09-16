@@ -1,0 +1,15 @@
+.add__todo__input{
+    width: calc(100% - 48px);
+    height: 32px;
+    background: #0000005e;
+    border: 2px solid black;
+    border-top-left-radius: 27px;
+    color: white;
+}
+input.add__todo__input:focus-visible {
+    outline: 0;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+  }

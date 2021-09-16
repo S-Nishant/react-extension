@@ -2,37 +2,55 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*Scroll bar styling*/
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgb(255 129 51 / 50%) 0%, rgb(0 0 0 / 40%) 35%, rgb(0 212 255 / 57%) 100%);
+  border-radius: 100px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #06066d;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.list-item{
+  border: 1px solid rgba(128, 128, 128, 0.301);
+  color: #ffffff;
+  height: 22px;
+}
+.todo__container{
+  background: #000000d9;
+  float: right;
+  border: 2px solid #000000d6;
+  /* max-height: 380px; */
+  /* overflow-x: auto; */
+  overflow-x: overlay;
+  height: 40px;
+  min-height: 300px;
+  max-height: 350px;
+}
+.add__form__container{
+  float:right;
+}
+.delete__item{
+  color: red;
+  float: right;
+  font: caption;
+  background: transparent;
+  border: 1px solid #ff00006e;
+}
+.head__red{
+  background: rgba(0, 0, 0, 0.062);
+  text-align:left;
 }

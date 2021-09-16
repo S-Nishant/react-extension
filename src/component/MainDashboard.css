@@ -12,8 +12,9 @@ body{
     cursor: pointer;
 }
 .strike {
-text-decoration: line-through;
+    text-decoration: line-through;
 }
 .clock__container{
-    float: right;
+    display: flex;
+    flex-direction: row-reverse;
 }
