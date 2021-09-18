@@ -6,8 +6,8 @@ function Clock() {
         width: "120px",
         border: true,
         borderColor: "#2e2e2e",
-        baseColor: "#17a2b8",
-        centerColor: "#459cff",
+        baseColor: "darkkhaki",
+        centerColor: "orange",
         centerBorderColor: "#fff",
         handColors: {
           second: "#d81c7a",

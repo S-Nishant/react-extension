@@ -17,7 +17,7 @@ async function getUsers(db) {
 }
 async function wherCla(db){
   // var reference = db.collection("users").doc("hLUizMq2l7VhxFIH5XGf");  
-const q = query(collection(db, "todoList"), where("id", "==", 1));
+const q = query(collection(db, "users"), where("emailId", "==", "s.nishant@aitglobalinc.com"));
 const querySnapshot = await getDocs(q);
 
 querySnapshot.forEach((doc) => {
