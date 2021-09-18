@@ -44,8 +44,8 @@ function MainDashboard() {
                         <Clock />                     
                     </div>
                     <div className="row">
-                    <div className="col-md-6"></div>
-                    <div className="col-md-6">
+                    <div className="col-md-3"></div>
+                    <div className="col-md-9">
                         <ToDoForm addTask={addTask}/>
                         <TodoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
                     </div>

@@ -49,6 +49,8 @@
   font: caption;
   background: transparent;
   border: 1px solid #ff00006e;
+  position: relative;
+  top: -25px;
 }
 .head__red{
   background: rgba(0, 0, 0, 0.062);

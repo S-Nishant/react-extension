@@ -10,6 +10,14 @@ body{
 
 .todo {
     cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.todo div {
+    /* text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; */
 }
 .strike {
     text-decoration: line-through;
