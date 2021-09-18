@@ -16,13 +16,16 @@ const writeUserData=(userId, email, task, timestamp,complete=false) =>{
       "timestamp": timestamp
     });
   }
+//   const updateList = () => {
+
+//   }
 const [dynamicTodoList,setTodoList] = useState([]);
 
 
     useEffect(() => {
-        const digitElevenGen = () => {
-            return Math.floor(Math.random() * 1000000000);
-        }
+        // const digitElevenGen = () => {
+        //     return Math.floor(Math.random() * 1000000000);
+        // }
         const UUIDGenerator = ()=> {
             return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
                 var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r && 0x3 | 0x8);
@@ -52,22 +55,14 @@ const [dynamicTodoList,setTodoList] = useState([]);
         }    
         
         getList();
+        
         //userId, email, task, timestamp,complete=false
-        writeUserData(UUIDGenerator(),'s.nishant@aitglobalinc.com','Exercisefull ',(new Date().toISOString()));
+        // writeUserData(UUIDGenerator(),'s.nishant@aitglobalinc.com','Exercisefull ',(new Date().toISOString()));
         let userRef = getDatabase();
 
-        // deletion of reference can be performed as below
-        set(ref(userRef, 'ToDoTable/26fe5db0-65a3-47da-bacb-90a727df8ff4'), 
-            null
-          )
-            //fetches data from firebase todoList table
-            // const TodoListCol = collectionGroup(db, 'todoList');
-            // const UserCol = collectionGroup(db, 'users');
-            // getDocs(TodoListCol).then(res=>{
-            // //   console.log('__Data___Arrived___Below__LOC:20__APP.JS___')
-            //   let list = res.docs.map(doc => doc.data())
-            //   setTodoList(list);
-            // });
+        // deletes | reference can be performed as below
+        set(ref(userRef, 'ToDoTable/26fe5db0-65a3-47da-bacb-90a727df8ff4'), null);
+            
         }, []);
     return (
         <div className="col-md-12 todo__container">

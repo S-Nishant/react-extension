@@ -23,8 +23,9 @@ function MainDashboard() {
     });
     setToDoList(filtered);
   }
-
   const addTask = (userInput ) => {
+    //Here, update the list after adding the new todo item
+    toDoList();
     let copy = [...toDoList];
     copy = [...copy, { id: toDoList.length + 1, task: userInput, complete: false }];
     setToDoList(copy);
