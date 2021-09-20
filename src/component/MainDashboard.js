@@ -11,6 +11,7 @@ import { getDatabase, ref, set, get,child } from "firebase/database";
 function MainDashboard() {
     
   const [ toDoList, setToDoList ] = useState(data);
+  const [ updateFlag, setUpdateFlag ] = useState(0);
   const [ dynamicToDoList, setDynamicTodoList ] = useState([]);
   
   const handleToggle = (id) => {
@@ -33,33 +34,37 @@ function MainDashboard() {
     copy = [...copy, { id: toDoList.length + 1, task: userInput, complete: false }];
     setToDoList(copy);
   }
+  const getList =()=>{
+    const dbRef = ref(getDatabase());
+    get(child(dbRef, `ToDoTable/`)).then((snapshot) => {
+        if (snapshot.exists()) {
+            let x = snapshot.val();
+            // Creating an array from json using key and adding that key in the JSON
+            var todolistArray = [];
+            Object.keys(x).forEach(function(key) {
+                x[key]['id']=key;
+                todolistArray.push(x[key]);
+            });
+            setDynamicTodoList(todolistArray);
+            console.log(x);
+        } else {
+            console.log("No data available");
+        }
+    }).catch((error) => {
+        console.error(error);
+    });
+}    
   useEffect(() => {
-    const getList =()=>{
-      const dbRef = ref(getDatabase());
-      get(child(dbRef, `ToDoTable/`)).then((snapshot) => {
-          if (snapshot.exists()) {
-              let x = snapshot.val();
-              // Creating an array from json using key and adding that key in the JSON
-              var todolistArray = [];
-              Object.keys(x).forEach(function(key) {
-                  x[key]['id']=key;
-                  todolistArray.push(x[key]);
-              });
-              setDynamicTodoList(todolistArray);
-              console.log(x);
-          } else {
-              console.log("No data available");
-          }
-      }).catch((error) => {
-          console.error(error);
-      });
-  }    
+  
   
   getList();
-    // return () => {
-    //   cleanup
-    // }
+    
   }, [])
+  useEffect(() => {
+    console.warn('Use this hook > Update the list here if it is being called a the right moment!')
+    getList();
+  }, [updateFlag])
+  
     return (
         <div className="fluid pe-1">
             <h3 className="head__red">
@@ -77,8 +82,8 @@ function MainDashboard() {
                     <div className="row">
                     <div className="col-md-3"></div>
                     <div className="col-md-9">
-                        <ToDoForm addTask={addTask}/>
-                        <TodoList toDoList={toDoList} dynamicToDo={dynamicToDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
+                        <ToDoForm updateFlag={updateFlag} setUpdateFlag={setUpdateFlag} addTask={addTask}/>
+                        <TodoList updateFlag={updateFlag} setUpdateFlag={setUpdateFlag} toDoList={toDoList} dynamicToDo={dynamicToDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
                     </div>
                     </div>
                     </div>

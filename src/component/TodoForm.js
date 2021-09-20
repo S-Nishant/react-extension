@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { getDatabase, ref, set, get,child } from "firebase/database";
-const ToDoForm = ({ addTask }) => {
+const ToDoForm = (props) => {
 
     const [ userInput, setUserInput ] = useState('');
 
@@ -10,7 +10,7 @@ const ToDoForm = ({ addTask }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        addTask(userInput);
+        props.addTask(userInput);
         setUserInput("");
     }
     const UUIDGenerator = ()=> {
@@ -20,6 +20,7 @@ const ToDoForm = ({ addTask }) => {
             });
     };
     const addTodoItem = (e) => {
+        props.setUpdateFlag((props.updateFlag)+1);
         console.log(userInput)
         const db = getDatabase();
         set(ref(db, `ToDoTable/${UUIDGenerator()}`), {    

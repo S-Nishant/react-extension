@@ -1,19 +1,20 @@
 import React from 'react';
 import { getDatabase, ref, set, get,child } from "firebase/database";
-const ToDo = ({todo, handleToggle}) => {
+const ToDo = (props) => {
 
     const handleClick = (e) => {
         e.preventDefault();
-        console.log('click TODO LOC 6: ',e.currentTarget.id,todo)
+        console.log('click TODO LOC 6: ',e.currentTarget.id,props.todo)
         // Update 'complete' key of data and repopulate table
         let updated_json = {
-            ...todo,
-            'complete':!todo.complete
+            ...props.todo,
+            'complete':!props.todo.complete
         }
         let userRef = getDatabase();
         // updates | reference can be performed as below
-        set(ref(userRef, 'ToDoTable/'+todo.id), updated_json);
-        handleToggle(e.currentTarget.id)
+        set(ref(userRef, 'ToDoTable/'+props.todo.id), updated_json);
+        props.setUpdateFlag((props.updateFlag)+1);
+        props.handleToggle(e.currentTarget.id)
     }
     
     const handleDeleteItem = (e) => {
@@ -26,9 +27,9 @@ const ToDo = ({todo, handleToggle}) => {
     
     return (
         <div className="list-item">
-            <div id={todo.id} key={todo.id + todo.task} name="todo" value={todo.id} className={todo.complete ? "todo strike" : "todo"}>
-            <div data={todo} id={todo.id} onClick={handleClick} >{todo.task}</div>
-             <button id={todo.id} onClick={handleDeleteItem} className="delete__item">x</button>
+            <div id={props.todo.id} key={props.todo.id + props.todo.task} name="todo" value={props.todo.id} className={props.todo.complete ? "todo strike" : "todo"}>
+            <div data={props.todo} id={props.todo.id} onClick={handleClick} >{props.todo.task}</div>
+             <button id={props.todo.id} onClick={handleDeleteItem} className="delete__item">x</button>
             </div>
         </div>
     );
