@@ -11,7 +11,7 @@ const ToDo = ({todo, handleToggle}) => {
             'complete':!todo.complete
         }
         let userRef = getDatabase();
-        // deletes | reference can be performed as below
+        // updates | reference can be performed as below
         set(ref(userRef, 'ToDoTable/'+todo.id), updated_json);
         handleToggle(e.currentTarget.id)
     }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./MainDashboard.css";
 import "./TodoList.css";
 import ToDoForm from './TodoForm';
@@ -6,10 +6,13 @@ import TodoList from './TodoList';
 import data from "./data.json";
 import Clock from './Clock';
 import FooterLink from './FooterLink';
+import { getDatabase, ref, set, get,child } from "firebase/database";
+
 function MainDashboard() {
     
   const [ toDoList, setToDoList ] = useState(data);
-
+  const [ dynamicToDoList, setDynamicTodoList ] = useState([]);
+  
   const handleToggle = (id) => {
     let mapped = toDoList.map(task => {
       return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task};
@@ -30,6 +33,33 @@ function MainDashboard() {
     copy = [...copy, { id: toDoList.length + 1, task: userInput, complete: false }];
     setToDoList(copy);
   }
+  useEffect(() => {
+    const getList =()=>{
+      const dbRef = ref(getDatabase());
+      get(child(dbRef, `ToDoTable/`)).then((snapshot) => {
+          if (snapshot.exists()) {
+              let x = snapshot.val();
+              // Creating an array from json using key and adding that key in the JSON
+              var todolistArray = [];
+              Object.keys(x).forEach(function(key) {
+                  x[key]['id']=key;
+                  todolistArray.push(x[key]);
+              });
+              setDynamicTodoList(todolistArray);
+              console.log(x);
+          } else {
+              console.log("No data available");
+          }
+      }).catch((error) => {
+          console.error(error);
+      });
+  }    
+  
+  getList();
+    // return () => {
+    //   cleanup
+    // }
+  }, [])
     return (
         <div className="fluid pe-1">
             <h3 className="head__red">
@@ -48,7 +78,7 @@ function MainDashboard() {
                     <div className="col-md-3"></div>
                     <div className="col-md-9">
                         <ToDoForm addTask={addTask}/>
-                        <TodoList toDoList={toDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
+                        <TodoList toDoList={toDoList} dynamicToDo={dynamicToDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
                     </div>
                     </div>
                     </div>
