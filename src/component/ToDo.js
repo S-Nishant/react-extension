@@ -23,6 +23,7 @@ const ToDo = (props) => {
         let userRef = getDatabase();
         let todoIdRef = e.currentTarget.id;
         set(ref(userRef, 'ToDoTable/'+todoIdRef), null);
+        props.setUpdateFlag((props.updateFlag)+1);
     }
     
     return (
