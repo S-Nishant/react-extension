@@ -44,13 +44,22 @@
   float:right;
 }
 .delete__item{
-  color: red;
+  position: relative;
+  top: -25px;
   float: right;
   font: caption;
   background: transparent;
-  border: 1px solid #ff00006e;
+  border: 0;
+  color: red;
+}
+.edit__item{
   position: relative;
   top: -25px;
+  float: right;
+  font: caption;
+  background: transparent;
+  border: 0;
+  color: #ffffff;
 }
 .head__red{
   background: rgba(0, 0, 0, 0.062);

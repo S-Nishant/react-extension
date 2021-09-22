@@ -30,6 +30,12 @@ function FooterLink() {
          <span>Google Meet</span>
          <a href="http://meet.new/1"><img src="icons/GmeetFavicon.png"alt="" /></a>
       </li>
+      <li>
+         <span>AIT Gitlab</span>
+         <a href="http://git.aitglobalindia.com/"><img src="icons/gitFavicon.png"alt="" /></a>
+      </li>
+
+      
    </ul>
  </div>
 </div>

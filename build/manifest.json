@@ -13,7 +13,7 @@
     "128" : "logo192.png"
     },
   "permissions": ["tabs"],
-  "content_security_policy": "script-src 'self' 'sha256-WXD2lWwZ3Wl302x8Dt9374ppxsTmJyuc71clelDNRdo='; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'sha256-bMdrtmmeD7/ih4gjo3z3qA/NbBNucOsMYR4eAk/p6/E='; object-src 'self'",
   "chrome_url_overrides" : {
     "newtab": "index.html"
   }

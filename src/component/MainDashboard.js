@@ -8,6 +8,7 @@ import Clock from './Clock';
 import FooterLink from './FooterLink';
 import { getDatabase, ref, set, get,child } from "firebase/database";
 import Attendance from './Attendance';
+import Settings from './Settings';
 
 function MainDashboard() {
     
@@ -74,16 +75,17 @@ function MainDashboard() {
             <Attendance></Attendance>
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-md-6">
+                    <div className="col-md-5">
                         <iframe id="google__calendar" title="cal" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%234285F4&amp;ctz=Asia%2FKolkata&amp;src=s.nishant%40aitglobalinc.com&amp;color=%23039BE5&amp;showTz=1&amp;mode=WEEK&amp;showTabs=1"  height="520" width="100%" frameborder="0" scrolling="no"></iframe>
                     </div>
+                    <div className="col-md-1"></div>
                     <div className="col-md-6">
-                    <div className="row">
-                        <Clock />                     
-                    </div>
+                      <div className="row">
+                          <Clock />                     
+                      </div>
                     <div className="row">
                     <div className="col-md-3"></div>
-                    <div className="col-md-9">
+                    <div className="col-md-9 pt-2 mt-2">
                         <ToDoForm updateFlag={updateFlag} setUpdateFlag={setUpdateFlag} addTask={addTask}/>
                         <TodoList updateFlag={updateFlag} setUpdateFlag={setUpdateFlag} toDoList={toDoList} dynamicToDo={dynamicToDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
                     </div>
@@ -91,6 +93,7 @@ function MainDashboard() {
                     </div>
                 </div>
                 </div>
+                <Settings></Settings>
                 <FooterLink></FooterLink>
         </div>
     )

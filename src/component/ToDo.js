@@ -17,6 +17,11 @@ const ToDo = (props) => {
         props.handleToggle(e.currentTarget.id)
     }
     
+
+    const handleEditItem = (e) =>{
+        alert('editpopup');
+    }
+    
     const handleDeleteItem = (e) => {
         console.log('id: '+e.currentTarget.id + 'will get deleted.')
         e.preventDefault()
@@ -30,7 +35,12 @@ const ToDo = (props) => {
         <div className="list-item">
             <div id={props.todo.id} key={props.todo.id + props.todo.task} name="todo" value={props.todo.id} className={props.todo.complete ? "todo strike" : "todo"}>
             <div data={props.todo} id={props.todo.id} onClick={handleClick} >{props.todo.task}</div>
-             <button id={props.todo.id} onClick={handleDeleteItem} className="delete__item">x</button>
+            <button id={props.todo.id} onClick={handleEditItem} className="edit__item">
+                <i className="fa fa-edit"></i>
+                </button>
+            <button id={props.todo.id} onClick={handleDeleteItem} className="delete__item">
+             <i className="fa fa-trash"></i>
+            </button>
             </div>
         </div>
     );

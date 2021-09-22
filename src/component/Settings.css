@@ -1,0 +1,9 @@
+.Setting__container{
+    color: white;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+}
+.fa-cog{
+    font-size: 20px;
+}

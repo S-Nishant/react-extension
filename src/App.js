@@ -4,6 +4,7 @@ import MainDashboard from './component/MainDashboard';
 import { db } from './firebase';
 import { useEffect } from 'react';
 import { collection,query, where, collectionGroup,getDocs } from 'firebase/firestore/lite';
+import SocialLoginComp from './component/SocialLoginComp';
 function App() {
   useEffect(() => {
 // console.log(getTodoList(db));
@@ -44,6 +45,7 @@ async function getTodoList(db) {
 }
   return (
     <div className="App">
+    <SocialLoginComp></SocialLoginComp>
       <MainDashboard></MainDashboard>
     </div>
   );
