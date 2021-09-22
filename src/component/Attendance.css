@@ -1,0 +1,19 @@
+.attendance__btn{
+    background-color: #27cda5;
+    color: #FFF;
+    border-radius: 13px;
+    height: 26px;
+    line-height: 26px;
+    width: 110px;
+    padding: 0 8px;
+    position: absolute;
+    top: 2px;
+    right: 4px;
+    border: transparent;
+}
+.attendance__btn:hover{
+    -webkit-transform: scale(1.02);
+}
+.attendance__check__out{
+    background-color: #e95b6d;
+}
