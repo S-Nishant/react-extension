@@ -5,6 +5,7 @@ import MainDashboard from './component/MainDashboard';
 import { useEffect, useState } from 'react';
 // import { collection,query, where, collectionGroup,getDocs } from 'firebase/firestore/lite';
 import SocialLoginComp from './component/SocialLoginComp';
+// import TestSocial from './component/TestSocial';
 function App() {
   const [userLoggedIn,setUserLoggedIn] =useState(false)
   useEffect(() => {
@@ -18,9 +19,9 @@ function App() {
   return (
     <div className="App">
       {userLoggedIn ?
-          <SocialLoginComp ></SocialLoginComp>
+          <MainDashboard></MainDashboard>
           :
-       <MainDashboard></MainDashboard>
+          <SocialLoginComp setUserLoggedIn={setUserLoggedIn}></SocialLoginComp>
       }
     </div>
   );
