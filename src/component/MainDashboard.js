@@ -80,7 +80,7 @@ function MainDashboard() {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-5">
-                        <iframe id="google__calendar" title="cal" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%234285F4&amp;ctz=Asia%2FKolkata&amp;src=s.nishant%40aitglobalinc.com&amp;color=%23039BE5&amp;showTz=1&amp;mode=WEEK&amp;showTabs=1"  height="520" width="100%" frameborder="0" scrolling="no"></iframe>
+                        <iframe id="google__calendar" title="cal" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%234285F4&amp;ctz=Asia%2FKolkata&amp;src=s.nishant%40aitglobalinc.com&amp;color=%23039BE5&amp;showTz=1&amp;mode=AGENDA&amp;showTabs=1"  height="520" width="100%" frameBorder="0" scrolling="no"></iframe>
                     </div>
                     <div className="col-md-1"></div>
                     <div className="col-md-6">
