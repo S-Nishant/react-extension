@@ -15,7 +15,7 @@ function Attendance() {
         }
         axios.post("http://localhost:8080/attendance/details",
         {
-            "email": localStorage.getItem('ext_encrypt_email')
+            "email": atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))
         },{
             headers: headers2
           })

@@ -7,9 +7,9 @@ function SocialLoginComp(props) {
     const handleSocialLogin = (user, err) => {
         console.log(user);
         console.log(err);
-        localStorage.setItem('ext_encrypt_email',user.profileObj.email);
-        localStorage.setItem('ext_encrypt_firstName',user.profileObj.givenName);
-        localStorage.setItem('ext_encrypt_imageUrl',user.profileObj.imageUrl);
+        localStorage.setItem('ext_encrypt_email',btoa(unescape(encodeURIComponent(user.profileObj.email))));
+        localStorage.setItem('ext_encrypt_firstName',btoa(unescape(encodeURIComponent(user.profileObj.givenName.trim()))));
+        localStorage.setItem('ext_encrypt_imageUrl',btoa(unescape(encodeURIComponent(user.profileObj.imageUrl))));
         localStorage.setItem('ext_encrypt_session',true);
         props.setUserLoggedIn(true);
       };

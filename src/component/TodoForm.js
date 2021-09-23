@@ -24,7 +24,7 @@ const ToDoForm = (props) => {
         console.log(userInput)
         const db = getDatabase();
         set(ref(db, `ToDoTable/${UUIDGenerator()}`), {    
-        "email": localStorage.getItem('ext_encrypt_email'),
+        "email": atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email')))),
         "task": userInput,
         "complete": false,
         "timestamp": new Date().toISOString()

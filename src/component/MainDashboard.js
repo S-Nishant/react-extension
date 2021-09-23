@@ -46,7 +46,7 @@ function MainDashboard() {
             // Creating an array from json using key and adding that key in the JSON
             var todolistArray = [];
             Object.keys(x).forEach(function(key) {
-              if(x[key]['email'] === localStorage.getItem('ext_encrypt_email')){
+              if(x[key]['email'] === atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))){
                 x[key]['id']=key;
                 todolistArray.push(x[key]);
               }
@@ -61,8 +61,8 @@ function MainDashboard() {
     });
 }    
   useEffect(() => {
-    setfirstName(localStorage.getItem('ext_encrypt_firstName'));
-    setIframeSrc(encodeURIComponent(localStorage.getItem('ext_encrypt_email')));
+    setfirstName(atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_firstName')))));
+    setIframeSrc(atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email')))));
     getList();
     
   }, [])

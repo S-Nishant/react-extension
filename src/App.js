@@ -9,7 +9,7 @@ import SocialLoginComp from './component/SocialLoginComp';
 function App() {
   const [userLoggedIn,setUserLoggedIn] =useState(false)
   useEffect(() => {
-    if(localStorage.getItem('ext_encrypt_session')){
+    if((localStorage.getItem('ext_encrypt_session'))){
       setUserLoggedIn(true)
     }
     else{
