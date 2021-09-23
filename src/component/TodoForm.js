@@ -24,7 +24,7 @@ const ToDoForm = (props) => {
         console.log(userInput)
         const db = getDatabase();
         set(ref(db, `ToDoTable/${UUIDGenerator()}`), {    
-        "email":'s.nishant@aitglobalinc.com',
+        "email": localStorage.getItem('ext_encrypt_email'),
         "task": userInput,
         "complete": false,
         "timestamp": new Date().toISOString()
@@ -34,7 +34,7 @@ const ToDoForm = (props) => {
     return (
         <form onSubmit={handleSubmit} className="col-md-12 add__form__container">
             <input className="add__todo__input" value={userInput} type="text" onChange={handleChange} placeholder="  Enter task..."/>
-            <button className="btn-xs btn-dark" onClick={addTodoItem}>Add</button>
+            <button className="btn-xs btn-dark add__todo__button" onClick={addTodoItem}>Add</button>
         </form>
     );
 };

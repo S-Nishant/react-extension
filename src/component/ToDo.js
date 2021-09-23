@@ -33,15 +33,21 @@ const ToDo = (props) => {
     
     return (
         <div className="list-item">
-            <div id={props.todo.id} key={props.todo.id + props.todo.task} name="todo" value={props.todo.id} className={props.todo.complete ? "todo strike" : "todo"}>
-            <div data={props.todo} id={props.todo.id} onClick={handleClick} >{props.todo.task}</div>
-            <button id={props.todo.id} onClick={handleEditItem} className="edit__item">
-                <i className="fa fa-edit"></i>
-                </button>
-            <button id={props.todo.id} onClick={handleDeleteItem} className="delete__item">
-             <i className="fa fa-trash"></i>
-            </button>
+            <div className="row">
+            <div id={props.todo.id} key={props.todo.id + props.todo.task} name="todo" value={props.todo.id} className="col-md-10">
+                <div  className={props.todo.complete ? "todo strike" : "todo"} data={props.todo} id={props.todo.id} onClick={handleClick} >{props.todo.task}</div>
             </div>
+            <div className="col-md-2">
+                <button id={props.todo.id} onClick={handleEditItem} className="edit__item">
+                    <i className="fa fa-edit"></i>
+                    </button>
+                <button id={props.todo.id} onClick={handleDeleteItem} className="delete__item">
+                <i className="fa fa-trash"></i>
+                </button>
+            </div>
+                
+            </div>
+            
         </div>
     );
 };

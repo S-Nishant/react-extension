@@ -24,6 +24,7 @@ body{
 }
 .strike {
     text-decoration: line-through;
+    color: rgb(255, 29, 29);
 }
 .clock__container{
     display: flex;

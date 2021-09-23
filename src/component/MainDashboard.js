@@ -15,7 +15,9 @@ function MainDashboard() {
   const [ toDoList, setToDoList ] = useState(data);
   const [ updateFlag, setUpdateFlag ] = useState(0);
   const [ dynamicToDoList, setDynamicTodoList ] = useState([]);
-  
+  const [ firstName, setfirstName] = useState('');
+  const [ IframeSrc, setIframeSrc] = useState('');
+
   const handleToggle = (id) => {
     let mapped = toDoList.map(task => {
       return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task};
@@ -44,8 +46,10 @@ function MainDashboard() {
             // Creating an array from json using key and adding that key in the JSON
             var todolistArray = [];
             Object.keys(x).forEach(function(key) {
+              if(x[key]['email'] === localStorage.getItem('ext_encrypt_email')){
                 x[key]['id']=key;
                 todolistArray.push(x[key]);
+              }
             });
             setDynamicTodoList(todolistArray);
             console.log(x);
@@ -57,9 +61,9 @@ function MainDashboard() {
     });
 }    
   useEffect(() => {
-  
-  
-  getList();
+    setfirstName(localStorage.getItem('ext_encrypt_firstName'));
+    setIframeSrc(encodeURIComponent(localStorage.getItem('ext_encrypt_email')));
+    getList();
     
   }, [])
   useEffect(() => {
@@ -70,7 +74,7 @@ function MainDashboard() {
     return (
         <div className="fluid pe-1">
             <h3 className="head__red">
-            Hi Nishant,
+            Hi {firstName},
             </h3>
             <Attendance></Attendance>
             <div className="container-fluid">

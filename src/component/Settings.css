@@ -7,3 +7,23 @@
 .fa-cog{
     font-size: 20px;
 }
+.Setting__Menu{
+    position: absolute;
+    bottom: 29px;
+    right: 0px;
+    width: 60px;
+    background: #fffdfd;
+    height: 100px;
+    /* height: 0%; */
+    color: black;
+    -webkit-transition: height 0.5s ease-in-out, visibility 0.5 linear;
+    transition: height 0.5s ease-in-out, visibility 0.5 linear;
+}
+.hide__menu{
+    height: 0px;
+    visibility: hidden;
+}
+
+.show__menu{
+    height: 100px;
+}

@@ -1,5 +1,5 @@
 .add__todo__input{
-    width: calc(100% - 48px);
+    width: calc(100% - 46px);
     height: 32px;
     background: #0000005e;
     border: 2px solid black;
@@ -12,4 +12,10 @@ input.add__todo__input:focus-visible {
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: white;
     opacity: 1; /* Firefox */
-  }
+}
+.add__todo__button{
+    background: black;
+    border: 2px solid black;
+    height: 34px;
+    border-top-right-radius: 10px;
+}

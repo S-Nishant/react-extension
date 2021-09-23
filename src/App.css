@@ -30,12 +30,13 @@
   height: 22px;
 }
 .todo__container{
-  background: #000000d9;
+  background: #00000066;
   float: right;
-  border: 2px solid #000000d6;
+  border: 2px solid #000000b8;
   /* max-height: 380px; */
   /* overflow-x: auto; */
-  overflow-x: overlay;
+  /* overflow-x: overlay; */
+  /* overflow-y: overlay; */
   height: 40px;
   min-height: 300px;
   max-height: 350px;
@@ -44,19 +45,19 @@
   float:right;
 }
 .delete__item{
-  position: relative;
+  /* position: relative;
   top: -25px;
   float: right;
-  font: caption;
+  font: caption; */
   background: transparent;
   border: 0;
   color: red;
 }
 .edit__item{
-  position: relative;
+  /* position: relative;
   top: -25px;
   float: right;
-  font: caption;
+  font: caption; */
   background: transparent;
   border: 0;
   color: #ffffff;
@@ -64,4 +65,12 @@
 .head__red{
   background: rgba(0, 0, 0, 0.062);
   text-align:left;
+}
+.google__signin__button{
+  background-color: #000000;
+    border: 0px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 6px;
 }

@@ -17,3 +17,9 @@
 .attendance__check__out{
     background-color: #e95b6d;
 }
+.attendance__total__time{
+    position: absolute;
+    right: 140px;
+    top: 4px;
+    color: white;
+}
