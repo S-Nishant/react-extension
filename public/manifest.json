@@ -12,8 +12,8 @@
   "icons": {
     "128" : "logo192.png"
     },
-  "permissions": ["tabs"],
-  "content_security_policy": "script-src 'self' 'sha256-bMdrtmmeD7/ih4gjo3z3qA/NbBNucOsMYR4eAk/p6/E='; object-src 'self'",
+  "permissions": ["tabs","identity"],
+  "content_security_policy": "script-src 'self' https://cdn.firebase.com https://*.firebaseio.com https://www.googletagmanager.com https://apis.google.com  'sha256-HSOQK9OiQCMGvO5KaB09SdKadPx/aHgY9PcogzQJpxU='; object-src 'self'",
   "chrome_url_overrides" : {
     "newtab": "index.html"
   }
