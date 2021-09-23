@@ -7,12 +7,12 @@ function Attendance() {
     const [attendanceButtonText, setattendanceButtonText] = useState(true)
     const [totalHours, setTotalHours] = useState('0:00')
 
+    const headers2 = {
+        'Content-Type': 'application/json;charset=UTF-8',
+        'Access-Control-Allow-Origin': '*'
+    }
     useEffect(() => {
         //Make api call to check if user is allowed to checkin or not
-        const headers2 = {
-            'Content-Type': 'application/json;charset=UTF-8',
-            'Access-Control-Allow-Origin': '*'
-        }
         axios.post("http://localhost:8080/attendance/details",
         {
             "email": atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))
@@ -35,23 +35,6 @@ function Attendance() {
     //     console.log('response',response)
     // });
 
-    axios.post("http://localhost:8080/attendance",
-    {
-        "checkIn":null,
-        "checkOut":"22/09/2021 23:39:00",
-        "emailId":"akshay.patil@aitglobalinc.com"
-    },{
-        headers: headers2
-      })
-      .then(function (response) {
-        // handle success
-        console.log(response);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-        
      
     }, [])
     
@@ -60,6 +43,25 @@ function Attendance() {
         let currentDate = new Date();
         //Use the below format for checkin and checkout
         let formattedDate = dateFormat(currentDate, "dd/mm/yyyy hh:MM:ss");
+        
+    axios.post("http://localhost:8080/attendance",
+    {
+        "checkIn": attendanceButtonText? formattedDate : null,
+        "checkOut": attendanceButtonText? null : formattedDate,
+        "emailId": atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))
+    },{
+        headers: headers2
+      })
+      .then(function (response) {
+        // handle success
+        setattendanceButtonText(!attendanceButtonText);
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+        
         console.log(formattedDate);
     }
     return (

@@ -1,35 +1,43 @@
-import React from 'react'
-import { GoogleLogin } from 'react-google-login';
+import React from "react";
+import { GoogleLogin } from "react-google-login";
 
 function SocialLoginComp(props) {
-    const clientID = "818410186410-f4kr514s870aia65j2c1qbigkb4n7k9g.apps.googleusercontent.com";
-    
-    const handleSocialLogin = (user, err) => {
-        console.log(user);
-        console.log(err);
-        localStorage.setItem('ext_encrypt_email',btoa(unescape(encodeURIComponent(user.profileObj.email))));
-        localStorage.setItem('ext_encrypt_firstName',btoa(unescape(encodeURIComponent(user.profileObj.givenName.trim()))));
-        localStorage.setItem('ext_encrypt_imageUrl',btoa(unescape(encodeURIComponent(user.profileObj.imageUrl))));
-        localStorage.setItem('ext_encrypt_session',true);
-        props.setUserLoggedIn(true);
-      };
-      const handleSocialLoginFailure = (err) =>{
-        console.log('___ERR___FAIL',err)
-      }
-    return (
-        <>
-                         <GoogleLogin
-    clientId={clientID}
-    buttonText="AIT Login"
-    onSuccess={handleSocialLogin}
-    onFailure={handleSocialLoginFailure}
-    cookiePolicy={'single_host_origin'}
-    className="google__signin__button"
-  />
-  
+  const clientID =
+    "818410186410-f4kr514s870aia65j2c1qbigkb4n7k9g.apps.googleusercontent.com";
 
-        </>
-    )
+  const handleSocialLogin = (user, err) => {
+    console.log(user);
+    console.log(err);
+    localStorage.setItem(
+      "ext_encrypt_email",
+      btoa(unescape(encodeURIComponent(user.profileObj.email)))
+    );
+    localStorage.setItem(
+      "ext_encrypt_firstName",
+      btoa(unescape(encodeURIComponent(user.profileObj.givenName.trim())))
+    );
+    localStorage.setItem(
+      "ext_encrypt_imageUrl",
+      btoa(unescape(encodeURIComponent(user.profileObj.imageUrl)))
+    );
+    localStorage.setItem("ext_encrypt_session", true);
+    props.setUserLoggedIn(true);
+  };
+  const handleSocialLoginFailure = (err) => {
+    console.log("___ERR___FAIL", err);
+  };
+  return (
+    <>
+      <GoogleLogin
+        clientId={clientID}
+        buttonText="AIT Login"
+        onSuccess={handleSocialLogin}
+        onFailure={handleSocialLoginFailure}
+        cookiePolicy={"single_host_origin"}
+        className="google__signin__button"
+      />
+    </>
+  );
 }
 
-export default SocialLoginComp
+export default SocialLoginComp;
