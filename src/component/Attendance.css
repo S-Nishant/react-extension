@@ -14,6 +14,10 @@
 .attendance__btn:hover{
     -webkit-transform: scale(1.02);
 }
+.attendance__btn span{
+    margin-left: 6px;
+    font-size: 14px;
+}
 .attendance__check__out{
     background-color: #e95b6d;
 }

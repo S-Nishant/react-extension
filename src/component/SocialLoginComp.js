@@ -20,10 +20,11 @@ function SocialLoginComp(props) {
         <>
                          <GoogleLogin
     clientId={clientID}
-    buttonText="Login"
+    buttonText="AIT Login"
     onSuccess={handleSocialLogin}
     onFailure={handleSocialLoginFailure}
     cookiePolicy={'single_host_origin'}
+    className="google__signin__button"
   />
   
 

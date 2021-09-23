@@ -69,7 +69,7 @@ function Attendance() {
             </span>
             <button onClick={attendanceCheck} type="button" className={"attendance__btn " + (attendanceButtonText?"":"attendance__check__out")}>
                 {attendanceButtonText?'Check in':'Check out'}
-                <span className="fa fa-clock ml-1"></span>    
+                <span className="fa fa-clock"></span>    
             </button>
         </div>
     )
