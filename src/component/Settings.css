@@ -29,3 +29,10 @@
     display: block;
     /* height: 100px; */
 }
+.Setting__Menu button ::after{
+    content: "Logout" !important;
+    padding-left: 8px;
+}
+.Setting__Menu button span{
+    font-size: 0;
+}

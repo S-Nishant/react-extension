@@ -85,7 +85,10 @@ function MainDashboard() {
                     <div className="col-md-1"></div>
                     <div className="col-md-6">
                       <div className="row">
-                          <Clock />                     
+                      <div className="clock__container">
+                      <Clock timeZone="default"/>    
+                      <Clock timeZone="custom"/>        
+                      </div>             
                       </div>
                     <div className="row">
                     <div className="col-md-3"></div>
