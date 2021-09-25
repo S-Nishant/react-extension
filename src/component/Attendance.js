@@ -42,11 +42,24 @@ function Attendance() {
         console.log(e)
         let currentDate = new Date();
         //Use the below format for checkin and checkout
-        let formattedDate = dateFormat(currentDate, "dd/mm/yyyy hh:MM:ss");
+
+        let formattedTimeArray = [Number(dateFormat(currentDate, "hh")),Number(dateFormat(currentDate, "MM")),dateFormat(currentDate, "ss")];
+        console.log(formattedTimeArray);
         
+        if(formattedTimeArray[1]> 57){
+            formattedTimeArray[0]=(Number(formattedTimeArray[0])+1).toString();
+        }else{
+            // adding 2 mins for request timeout sync
+            formattedTimeArray[1] = (Number(formattedTimeArray[1]) + 2).toString();
+        }
+        console.log('now: ',formattedTimeArray)
+        let formattedDate = dateFormat(currentDate, "dd/mm/yyyy ") + (formattedTimeArray[0].length === 1 ? "0" :"")+formattedTimeArray[0] + ":" + 
+        (formattedTimeArray[1].length === 1 ? "0" :"") + formattedTimeArray[1] + ":00";
+        let formattedDateCheckin = dateFormat(currentDate, "dd/mm/yyyy hh:MM:ss")
+        // return;
     axios.post("http://localhost:8080/attendance",
     {
-        "checkIn": attendanceButtonText? formattedDate : null,
+        "checkIn": attendanceButtonText? formattedDateCheckin : null,
         "checkOut": attendanceButtonText? null : formattedDate,
         "emailId": atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))
     },{

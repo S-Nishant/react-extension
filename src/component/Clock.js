@@ -5,7 +5,6 @@ function Clock(props) {
     // console.log(props.timeZone)
     let options = {};
     if(props.timeZone === 'default'){
-
          options = {
             width: "120px",
             border: true,
@@ -40,8 +39,8 @@ function Clock(props) {
         };
     }
     const [custOption, setcustOption] = useState(options);
-    const timeZone = { timeZone: "Australia/Brisbane" };
-    const updateClock = (timeZone) => {
+    const timeZone = { timeZone: "America/New_York" };
+    const updateClock = () => {
         let customTimeZone = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
         let customDate = new Date(customTimeZone);
     
@@ -56,11 +55,8 @@ function Clock(props) {
       if(props.timeZone !== 'default'){
           setInterval(updateClock, 1000);
       }
-    //   updateClock(timeZone)
     return (
-        
             <AnalogClock {...custOption} /> 
-        // </div>
     )
 }
 
