@@ -4,8 +4,9 @@ import dateFormat from "dateformat";
 
 function Attendance() {
     const axios = require('axios');
+    const [attendanceBtnFlag, setattendanceBtnFlag] = useState(false);
     const [attendanceButtonText, setattendanceButtonText] = useState(true)
-    const [totalHours, setTotalHours] = useState('0:00')
+    const [totalHours, setTotalHours] = useState('--:--')
 
     const headers2 = {
         'Content-Type': 'application/json;charset=UTF-8',
@@ -13,6 +14,16 @@ function Attendance() {
     }
     useEffect(() => {
         //Make api call to check if user is allowed to checkin or not
+        attendanceDetails();
+    
+    // axios.get('http://localhost:8080/attendance/refreshToken').then(function(response){
+    //     console.log('response',response)
+    // });
+
+     
+    }, [])
+    
+    const attendanceDetails = () =>{
         axios.post("http://localhost:8080/attendance/details",
         {
             "email": atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))
@@ -22,6 +33,7 @@ function Attendance() {
           .then(function (response) {
             // handle success
             console.log('response for check btn : ',response.data.allowedToCheckIn);
+            setattendanceBtnFlag(true)
             setattendanceButtonText(response.data.allowedToCheckIn);
             setTotalHours(response.data.totalHrs);
           })
@@ -30,14 +42,7 @@ function Attendance() {
             setattendanceButtonText(true);
             console.log(error);
           })
-    
-    // axios.get('http://localhost:8080/attendance/refreshToken').then(function(response){
-    //     console.log('response',response)
-    // });
-
-     
-    }, [])
-    
+    }
     const attendanceCheck = (e) => {
         console.log(e)
         let currentDate = new Date();
@@ -67,6 +72,7 @@ function Attendance() {
       })
       .then(function (response) {
         // handle success
+        attendanceDetails();
         setattendanceButtonText(!attendanceButtonText);
         console.log(response);
       })
@@ -82,10 +88,16 @@ function Attendance() {
             <span className="attendance__total__time">
             {totalHours} Hrs
             </span>
-            <button onClick={attendanceCheck} type="button" className={"attendance__btn " + (attendanceButtonText?"":"attendance__check__out")}>
+            {
+    attendanceBtnFlag?
+                <button onClick={attendanceCheck} type="button" className={"attendance__btn " + (attendanceButtonText?"":"attendance__check__out")}>
                 {attendanceButtonText?'Check in':'Check out'}
                 <span className="fa fa-clock"></span>    
             </button>
+                        :
+                        "NO"
+            
+            }
         </div>
     )
 }

@@ -42,4 +42,5 @@ iframe{
 }
 .clock__timezone{
     color: #cccccc;
+    font-weight: 600;
 }
