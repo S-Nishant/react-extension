@@ -1,0 +1,17 @@
+.modal__container{
+    position: absolute;
+    top: 28vh;
+    left: 28vw;
+    width: 600px;
+    height: 300px;
+    padding: 20px;
+    background: #001c2f9c;
+    border: 2px solid #00000052;
+    border-radius: 6px;
+}
+.modal__container textarea{
+
+}
+#todo__btn__save,#todo__btn__cancel{
+    padding:10px;
+}
