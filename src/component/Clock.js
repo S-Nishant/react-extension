@@ -56,7 +56,10 @@ function Clock(props) {
           setInterval(updateClock, 1000);
       }
     return (
+      <>
             <AnalogClock {...custOption} /> 
+            <span className="clock__timezone">{props.timeZone !== 'default'?'USA':'INDIA' }</span>
+      </>
     )
 }
 

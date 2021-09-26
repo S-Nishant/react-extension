@@ -76,8 +76,8 @@
     top: 8vw !important;
     right: 5vw !important;
     font-size: 18px !important;
-  }
-  .google__signin__button div{
+}
+.google__signin__button div{
     background: none !important;
 }
 .google__signin__button span{
