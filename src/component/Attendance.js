@@ -26,7 +26,7 @@ function Attendance() {
     const attendanceDetails = () =>{
         axios.post("http://localhost:8080/attendance/details",
         {
-            "email": "srijan@aitglobalinc.com"
+            "email": atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))
         },{
             headers: headers2
           })
@@ -56,7 +56,7 @@ function Attendance() {
     {
         "checkIn": attendanceButtonText? formattedDatePlus : null,
         "checkOut": attendanceButtonText? null : formattedDatePlus,
-        "emailId": "srijan@aitglobalinc.com"
+        "emailId": atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))
     },{
         headers: headers2
       })
