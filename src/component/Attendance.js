@@ -26,7 +26,7 @@ function Attendance() {
     const attendanceDetails = () =>{
         axios.post("http://localhost:8080/attendance/details",
         {
-            "email": atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))
+            "email": "srijan@aitglobalinc.com"
         },{
             headers: headers2
           })
@@ -46,27 +46,17 @@ function Attendance() {
     const attendanceCheck = (e) => {
         console.log(e)
         let currentDate = new Date();
+        // let currentDateOther = new Date();
+               
         //Use the below format for checkin and checkout
-
-        let formattedTimeArray = [Number(dateFormat(currentDate, "hh")),Number(dateFormat(currentDate, "MM")),dateFormat(currentDate, "ss")];
-        console.log(formattedTimeArray);
+        // currentDate.setSeconds(currentDate.getSeconds());
+        let formattedDatePlus = dateFormat(currentDate, "dd/mm/yyyy HH:MM:ss")
         
-        if(formattedTimeArray[1]> 57){
-            formattedTimeArray[0]=(Number(formattedTimeArray[0])+1).toString();
-        }else{
-            // adding 2 mins for request timeout sync
-            formattedTimeArray[1] = (Number(formattedTimeArray[1]) + 2).toString();
-        }
-        console.log('now: ',formattedTimeArray)
-        let formattedDate = dateFormat(currentDate, "dd/mm/yyyy ") + (formattedTimeArray[0].length === 1 ? "0" :"")+formattedTimeArray[0] + ":" + 
-        (formattedTimeArray[1].length === 1 ? "0" :"") + formattedTimeArray[1] + ":00";
-        let formattedDateCheckin = dateFormat(currentDate, "dd/mm/yyyy hh:MM:ss")
-        // return;
     axios.post("http://localhost:8080/attendance",
     {
-        "checkIn": attendanceButtonText? formattedDateCheckin : null,
-        "checkOut": attendanceButtonText? null : formattedDate,
-        "emailId": atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))
+        "checkIn": attendanceButtonText? formattedDatePlus : null,
+        "checkOut": attendanceButtonText? null : formattedDatePlus,
+        "emailId": "srijan@aitglobalinc.com"
     },{
         headers: headers2
       })
@@ -81,7 +71,7 @@ function Attendance() {
         console.log(error);
       })
         
-        console.log(formattedDate);
+        // console.log(formattedDate);
     }
     return (
         <div>

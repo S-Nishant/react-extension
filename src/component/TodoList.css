@@ -1,7 +1,7 @@
 .add__todo__input{
     width: calc(100% - 46px);
     height: 32px;
-    background: #0000005e;
+    background:#000000eb;
     border: 2px solid black;
     border-top-left-radius: 27px;
     color: white;
