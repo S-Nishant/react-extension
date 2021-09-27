@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { GoogleLogout } from 'react-google-login';
 import './Settings.css'
-function Settings() {
+function Settings(props) {
     const clientID = "818410186410-f4kr514s870aia65j2c1qbigkb4n7k9g.apps.googleusercontent.com";
     const handleSocialLogOut = (user,res) =>{
         console.log(res,user)
@@ -9,6 +9,7 @@ function Settings() {
         localStorage.removeItem('ext_encrypt_firstName');
         localStorage.removeItem('ext_encrypt_imageUrl');
         localStorage.removeItem('ext_encrypt_session');
+        props.setUserLoggedIn(false);
       }
       const handleSocialLogoutFailure = (err) =>{
         console.log('Logout + Fail')

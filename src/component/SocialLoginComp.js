@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoogleLogin } from "react-google-login";
+import './SocialLoginComp.css';
 
 function SocialLoginComp(props) {
   const clientID =
@@ -26,6 +27,15 @@ function SocialLoginComp(props) {
   const handleSocialLoginFailure = (err) => {
     console.log("___ERR___FAIL", err);
   };
+  const [email, setemail] = useState("");
+  const handleChange = (e) =>{
+    console.log('Hi')
+    setemail(e.target.value);
+  }
+  const onClick = (e) => {
+    alert();
+    props.setUserLoggedIn(true);
+  }
   return (
     <>
       <GoogleLogin
@@ -36,6 +46,10 @@ function SocialLoginComp(props) {
         cookiePolicy={"single_host_origin"}
         className="google__signin__button"
       />
+      <div className="bypass__login__frame">
+        <input type="email" className="login__email__field fomr-control" onChange={handleChange}/>
+        <button type="button" className="login__bypass__button btn btn-warning mt-4" onClick={onClick}>Login</button>  
+      </div>
     </>
   );
 }

@@ -10,7 +10,7 @@ import { getDatabase, ref, set, get,child } from "firebase/database";
 import Attendance from './Attendance';
 import Settings from './Settings';
 
-function MainDashboard() {
+function MainDashboard(props) {
     
   const [ toDoList, setToDoList ] = useState(data);
   const [ updateFlag, setUpdateFlag ] = useState(0);
@@ -100,7 +100,7 @@ function MainDashboard() {
                     </div>
                 </div>
                 </div>
-                <Settings></Settings>
+                <Settings setUserLoggedIn={props.setUserLoggedIn}></Settings>
                 <FooterLink></FooterLink>
         </div>
     )
