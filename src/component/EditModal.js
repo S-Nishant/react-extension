@@ -26,7 +26,7 @@ function EditModal(props) {
     return (
         <div className="container-fluid modal__container">
             <textarea className="modal__textArea"
-            rows="10" cols="50" defaultValue={props.data.task} onChange={changeTask}
+            rows="14" cols="100" defaultValue={props.data.task} onChange={changeTask}
             >
             </textarea>
                     <button type="button" id="todo__btn__save" className="btn btn-success ms-2 me-2" onClick={updateTodo}>Save</button>

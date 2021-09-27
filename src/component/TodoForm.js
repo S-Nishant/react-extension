@@ -20,7 +20,9 @@ const ToDoForm = (props) => {
             });
     };
     const addTodoItem = (e) => {
-        props.setUpdateFlag((props.updateFlag)+1);
+        if((userInput.trim()).length === 0){
+            return;
+        }
         console.log(userInput)
         const db = getDatabase();
         set(ref(db, `ToDoTable/${UUIDGenerator()}`), {    
@@ -29,7 +31,7 @@ const ToDoForm = (props) => {
         "complete": false,
         "timestamp": new Date().toISOString()
         });
-    
+        props.setUpdateFlag((props.updateFlag)+1);
     }
     return (
         <form onSubmit={handleSubmit} className="col-md-12 add__form__container">

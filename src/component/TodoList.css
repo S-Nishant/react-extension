@@ -3,7 +3,7 @@
     height: 32px;
     background:#000000eb;
     border: 2px solid black;
-    border-top-left-radius: 27px;
+    /* border-top-left-radius: 27px; */
     color: white;
 }
 input.add__todo__input:focus-visible {

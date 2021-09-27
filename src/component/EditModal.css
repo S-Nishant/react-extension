@@ -1,11 +1,11 @@
 .modal__container{
     position: absolute;
-    top: 28vh;
-    left: 28vw;
-    width: 600px;
-    height: 300px;
+    top: 22vh;
+    left: 18vw;
+    width: 69vw;
+    height: 400px;
     padding: 20px;
-    background: #001c2f9c;
+    background: #01365ae3;
     border: 2px solid #00000052;
     border-radius: 6px;
 }
