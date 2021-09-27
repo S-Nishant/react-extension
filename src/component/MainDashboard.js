@@ -17,7 +17,7 @@ function MainDashboard(props) {
   const [ dynamicToDoList, setDynamicTodoList ] = useState([]);
   const [ firstName, setfirstName] = useState('');
   const [ IframeSrc, setIframeSrc] = useState('');
-
+  const [displayFrame, setdisplayFrame] = useState(false);
   const handleToggle = (id) => {
     let mapped = toDoList.map(task => {
       return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task};
@@ -31,6 +31,7 @@ function MainDashboard(props) {
     });
     setToDoList(filtered);
   }
+  let url ="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%234285F4&amp;ctz=Asia%2FKolkata&amp;src=s.nishant%40aitglobalinc.com&amp;color=%23039BE5&amp;showTz=1&amp;mode=AGENDA&amp;showTabs=1";
   const addTask = (userInput ) => {
     //Here, update the list after adding the new todo item
     // toDoList();
@@ -62,7 +63,7 @@ function MainDashboard(props) {
 }    
   useEffect(() => {
     setfirstName(atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_firstName')))));
-    setIframeSrc(atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email')))));
+    setIframeSrc("https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%234285F4&ctz=Asia%2FKolkata&src="+atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))+"&color=%23039BE5&showTz=1&mode=AGENDA&showTabs=1");
     getList();
     
   }, [])
@@ -70,8 +71,7 @@ function MainDashboard(props) {
     console.warn('Use this hook > Update the list here if it is being called a the right moment!')
     getList();
   }, [updateFlag])
-  
-    return (
+      return (
         <div className="fluid pe-1">
             <h3 className="head__red">
             Hi {firstName},
@@ -80,7 +80,7 @@ function MainDashboard(props) {
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-5">
-                        <iframe id="google__calendar" title="cal" src="https://calendar.google.com/calendar/embed?height=600&amp;wkst=1&amp;bgcolor=%234285F4&amp;ctz=Asia%2FKolkata&amp;src=s.nishant%40aitglobalinc.com&amp;color=%23039BE5&amp;showTz=1&amp;mode=AGENDA&amp;showTabs=1"  height="520" width="100%" frameBorder="0" scrolling="no"></iframe>
+                        <iframe id="google__calendar" key="1" title="cal" src={IframeSrc}  height="520" width="100%" frameBorder="0" scrolling="no"></iframe>
                     </div>
                     <div className="col-md-1"></div>
                     <div className="col-md-6">

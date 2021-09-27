@@ -19,7 +19,7 @@ function App() {
   return (
     <div className="App">
       {userLoggedIn ?
-          <MainDashboard></MainDashboard>
+          <MainDashboard setUserLoggedIn={setUserLoggedIn}></MainDashboard>
           :
           <SocialLoginComp setUserLoggedIn={setUserLoggedIn}></SocialLoginComp>
       }

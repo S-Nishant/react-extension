@@ -33,7 +33,20 @@ function SocialLoginComp(props) {
     setemail(e.target.value);
   }
   const onClick = (e) => {
-    alert();
+    localStorage.setItem(
+      "ext_encrypt_email",
+      btoa(unescape(encodeURIComponent(email)))
+    );
+    localStorage.setItem(
+      "ext_encrypt_firstName",
+      btoa(unescape(encodeURIComponent(email.substr(0,email.indexOf('@')))))
+    );
+    localStorage.setItem(
+      "ext_encrypt_imageUrl",
+      btoa(unescape(encodeURIComponent("")))
+    );
+    localStorage.setItem("ext_encrypt_session", true);
+   
     props.setUserLoggedIn(true);
   }
   return (
