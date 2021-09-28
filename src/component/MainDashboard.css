@@ -16,6 +16,7 @@ body{
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    padding: 2px 4px;
 }
 .todo div {
     /* text-overflow: ellipsis;

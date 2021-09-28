@@ -25,9 +25,11 @@
   background: #06066d;
 }
 .list-item{
-  border: 1px solid rgba(128, 128, 128, 0.301);
+  /* border: 1px solid rgba(128, 128, 128, 0.301);*/
+  /* height: 22px; */
+  border: 1px solid rgb(0 163 145 / 22%);
   color: #ffffff;
-  height: 22px;
+  border-radius: 4px;
 }
 .todo__container{
   background:#000000eb;
@@ -51,7 +53,7 @@
   font: caption; */
   background: transparent;
   border: 0;
-  color: red;
+  color: #bb3849;
 }
 .edit__item{
   /* position: relative;

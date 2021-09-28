@@ -8,7 +8,7 @@ function Clock(props) {
          options = {
             width: "120px",
             border: true,
-            borderColor: "transparent",
+            borderColor: "white",
             baseColor: "#27cda58f",
             centerColor: "orange",
             centerBorderColor: "#fff",
@@ -24,8 +24,8 @@ function Clock(props) {
             useCustomTime: true,    // set this to true
             width: "120px",
             border: true,
-            borderColor: "transparent",
-            baseColor: "#4fae4fc7",
+            borderColor: "white",
+            baseColor: "#27cda58f",
             centerColor: "#459cff",
             centerBorderColor: "#fff",
             handColors: {
