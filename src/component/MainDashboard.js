@@ -18,6 +18,7 @@ function MainDashboard(props) {
   const [ firstName, setfirstName] = useState('');
   const [ IframeSrc, setIframeSrc] = useState('');
   const [displayFrame, setdisplayFrame] = useState(false);
+  const [salutaion, setsalutaion] = useState("Hi");
   const handleToggle = (id) => {
     let mapped = toDoList.map(task => {
       return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task};
@@ -65,6 +66,15 @@ function MainDashboard(props) {
     setfirstName(atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_firstName')))));
     setIframeSrc("https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%234285F4&ctz=Asia%2FKolkata&src="+atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))+"&color=%23039BE5&showTz=1&mode=AGENDA&showTabs=1");
     getList();
+    let currentDate = new Date();
+    var currentHour = currentDate.getHours()
+    if (currentHour < 12) {
+      setsalutaion('Good Morning');
+    } else if (currentHour < 18) {
+      setsalutaion('Good Afternoon');
+    } else {
+      setsalutaion('Good Evening');
+    }
     
   }, [])
   useEffect(() => {
@@ -73,9 +83,15 @@ function MainDashboard(props) {
   }, [updateFlag])
       return (
         <div className="fluid pe-1">
-            <h3 className="head__red">
-            Hi {firstName},
-            </h3>
+            <div className="head__red">
+            {salutaion}
+            { salutaion === 'Good Morning'? "☕":
+            salutaion === 'Good Evening'?
+            "🌄":
+            "🌞"
+            }, {firstName}
+            
+            </div>
             <Attendance></Attendance>
             <div className="container-fluid">
                 <div className="row">
@@ -84,7 +100,7 @@ function MainDashboard(props) {
                     </div>
                     <div className="col-md-1"></div>
                     <div className="col-md-6">
-                      <div className="row">
+                      <div className="row pt-4 pb-2">
                       <div className="clock__container">
                       <Clock timeZone="default"/>    
                       <Clock timeZone="custom"/>        

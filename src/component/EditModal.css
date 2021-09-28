@@ -15,3 +15,13 @@
 #todo__btn__save,#todo__btn__cancel{
     padding:10px;
 }
+#todo__btn__save{
+    background-color: #27cda5 !important;
+    color: white;
+    font-weight: 700;
+}
+#todo__btn__cancel{
+    background-color: #e95b6d !important;
+    color: white;
+    font-weight: 700;
+}

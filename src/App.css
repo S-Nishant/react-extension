@@ -66,7 +66,9 @@
 }
 .head__red{
   background: rgba(0, 0, 0, 0.062);
-  text-align:left;
+  /* text-align:left; */
+  font-family :'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 24px;
 }
 .google__signin__button{
   background-color: #000000a6 !important;

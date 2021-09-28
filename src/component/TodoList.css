@@ -1,10 +1,10 @@
 .add__todo__input{
     width: calc(100% - 46px);
-    height: 32px;
-    background:#000000eb;
+    height: 40px;
+    background: #000000a8;
     border: 2px solid black;
-    /* border-top-left-radius: 27px; */
     color: white;
+    border-top-left-radius: 10px;
 }
 input.add__todo__input:focus-visible {
     outline: 0;
@@ -16,6 +16,6 @@ input.add__todo__input:focus-visible {
 .add__todo__button{
     background: black;
     border: 2px solid black;
-    height: 34px;
+    height: 39px;
     border-top-right-radius: 10px;
 }
