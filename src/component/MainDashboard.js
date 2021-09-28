@@ -62,25 +62,30 @@ function MainDashboard(props) {
         console.error(error);
     });
 }    
+  const getSalutation = () => {
+    let currentDate = new Date();
+      var currentHour = currentDate.getHours()
+      if (currentHour < 12) {
+        setsalutaion('Good Morning');
+      } else if (currentHour < 18) {
+        setsalutaion('Good Afternoon');
+      } else {
+        setsalutaion('Good Evening');
+      }
+      // No good night
+  }
   useEffect(() => {
     setfirstName(atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_firstName')))));
     setIframeSrc("https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%234285F4&ctz=Asia%2FKolkata&src="+atob(unescape(encodeURIComponent(localStorage.getItem('ext_encrypt_email'))))+"&color=%23039BE5&showTz=1&mode=AGENDA&showTabs=1");
     getList();
-    let currentDate = new Date();
-    var currentHour = currentDate.getHours()
-    if (currentHour < 12) {
-      setsalutaion('Good Morning');
-    } else if (currentHour < 18) {
-      setsalutaion('Good Afternoon');
-    } else {
-      setsalutaion('Good Evening');
-    }
-    
+    getSalutation();
   }, [])
+
   useEffect(() => {
     console.warn('Use this hook > Update the list here if it is being called a the right moment!')
     getList();
-  }, [updateFlag])
+  }, [updateFlag]);
+
       return (
         <div className="fluid pe-1">
             <div className="head__red">

@@ -29,7 +29,7 @@ function EditModal(props) {
             rows="14" cols="100" defaultValue={props.data.task} onChange={changeTask}
             >
             </textarea>
-                    <button type="button" id="todo__btn__save" className="btn btn-success ms-2 me-2" onClick={updateTodo}>Save</button>
+                    <button type="button" id="todo__btn__save" className="btn btn-success ms-2 me-1" onClick={updateTodo}>Save</button>
                     <button type="button" id="todo__btn__cancel" className="btn btn-danger" onClick={props.closeModal}>Cancel</button>
         </div>
     )

@@ -19,3 +19,7 @@ input.add__todo__input:focus-visible {
     height: 39px;
     border-top-right-radius: 10px;
 }
+.todoList__noTaskPlaceholder{
+    color: white;
+    margin-top: 10px;
+}

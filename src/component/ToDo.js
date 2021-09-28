@@ -47,7 +47,7 @@ const ToDo = (props) => {
             </div>
             <div className="col-md-2">
                 <button id={props.todo.id} onClick={handleEditItem} className="edit__item">
-                    <i className="fa fa-edit"></i>
+                    <i className="fa fa-pencil"></i>
                     </button>
                 <button id={props.todo.id} onClick={handleDeleteItem} className="delete__item">
                 <i className="fa fa-trash"></i>
