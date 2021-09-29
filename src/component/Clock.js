@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import AnalogClock from 'analog-clock-react';
 
 function Clock(props) {
-    // console.log(props.timeZone)
+    // console.log(props.timeZone)  
+  
     let options = {};
     if(props.timeZone === 'default'){
          options = {
@@ -39,9 +40,10 @@ function Clock(props) {
         };
     }
     const [custOption, setcustOption] = useState(options);
-    const timeZone = { timeZone: "America/New_York" };
+    const getTimeZone = localStorage.getItem('timezone') ? { timeZone:localStorage.getItem('timezone')} :{ timeZone: "America/New_York" };
+
     const updateClock = () => {
-        let customTimeZone = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
+        let customTimeZone = new Date().toLocaleString("en-US", getTimeZone);
         let customDate = new Date(customTimeZone);
     
     setcustOption({
@@ -58,7 +60,7 @@ function Clock(props) {
     return (
       <>
             <AnalogClock {...custOption} /> 
-            <span className="clock__timezone">{props.timeZone !== 'default'?'USA':'INDIA' }</span>
+            <span className="clock__timezone">{props.timeZone !== 'default'?getTimeZone.timeZone.split('/')[getTimeZone.timeZone.split('/').length-1]:'INDIA' }</span>
       </>
     )
 }

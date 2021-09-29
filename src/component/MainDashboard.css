@@ -42,6 +42,14 @@ iframe{
     width: inherit;
 }
 .clock__timezone{
-    color: #cccccc;
-    font-weight: 600;
+    /* color: #cccccc;
+    font-weight: 600; */
+    color: black;
+    position: relative;
+    left: 52px;
+    top: 98px;
+    background: white;
+    height: 22px;
+    font-weight: 700;
+    border-radius: 4px;
 }
