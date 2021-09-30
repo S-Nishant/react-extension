@@ -105,19 +105,20 @@ function MainDashboard(props) {
                     </div>
                     <div className="col-md-1"></div>
                     <div className="col-md-6">
+
                       <div className="row pt-4 pb-2">
-                      <div className="clock__container">
-                      <Clock timeZone="default"/>    
-                      <Clock timeZone="custom"/>        
-                      </div>             
+                        <div className="clock__container">
+                          <Clock timeZone="default"/>    
+                          <Clock timeZone="custom"/>        
+                        </div>             
                       </div>
-                    <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-9 pt-2 mt-2">
-                        <ToDoForm updateFlag={updateFlag} setUpdateFlag={setUpdateFlag} addTask={addTask}/>
-                        <TodoList updateFlag={updateFlag} setUpdateFlag={setUpdateFlag} toDoList={toDoList} dynamicToDo={dynamicToDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
-                    </div>
-                    </div>
+                      <div className="row">
+                      <div className="col-md-3"></div>
+                      <div className="col-md-9 pt-2 mt-2">
+                          <ToDoForm updateFlag={updateFlag} setUpdateFlag={setUpdateFlag} addTask={addTask}/>
+                          <TodoList updateFlag={updateFlag} setUpdateFlag={setUpdateFlag} toDoList={toDoList} dynamicToDo={dynamicToDoList} handleToggle={handleToggle} handleFilter={handleFilter}/>
+                      </div>
+                      </div>
                     </div>
                 </div>
                 </div>

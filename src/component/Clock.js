@@ -60,7 +60,7 @@ function Clock(props) {
     return (
       <>
             <AnalogClock {...custOption} /> 
-            <span className="clock__timezone">{props.timeZone !== 'default'?getTimeZone.timeZone.split('/')[getTimeZone.timeZone.split('/').length-1]:'INDIA' }</span>
+            <span className="clock__timezone">{props.timeZone !== 'default'?getTimeZone.timeZone.split('/')[getTimeZone.timeZone.split('/').length-1]:'India' }</span>
       </>
     )
 }

@@ -60,7 +60,7 @@ function SocialLoginComp(props) {
         className="google__signin__button"
       />
       <div className="bypass__login__frame">
-        <input type="email" className="login__email__field fomr-control" onChange={handleChange}/>
+        <input type="email" className="login__email__field form-control" onChange={handleChange}/>
         <button type="button" className="login__bypass__button btn btn-warning mt-4" onClick={onClick}>Login</button>  
       </div>
     </>
