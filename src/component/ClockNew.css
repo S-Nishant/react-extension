@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
+.App {
+  font-family: sans-serif;
+}
+
+.clock {
+  background: #ffffff42;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 2px 30px rgba(0, 0, 0, 0.2);
+  font-size: 24px;
+  color: #444;
+  text-align: center;
+  border: 6px solid black;
+}
+
+.clock::after {
+  background: #aaa;
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #fff;
+}
+
+.hour_hand {
+  position: absolute;
+  width: 6px;
+  height: 36px;
+  background: #000000;
+  top: 29%;
+  left: 47.5%;
+  transform-origin: bottom;
+  border-top-left-radius:100vw;
+  border-top-right-radius:100vw;
+}
+
+.min_hand {
+  position: absolute;
+  width: 4px;
+  height: 60px;
+  background: #000000;
+  top: 13.5%;
+  left: 49%;
+  transform-origin: bottom;
+}
+
+.sec_hand {
+  position: absolute;
+  width: 2px;
+  height: 60px;
+  background: red;
+  top: 16.5%;
+  left: 49.5%;
+  transform-origin: bottom;
+}
+
+.clock span {
+  position: absolute;
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 700;
+}
+
+.twelve {
+  top: 10px;
+  left: 46%;
+}
+
+.one {
+  top: 10%;
+  right: 29%;
+}
+
+.eleven {
+  top: 10%;
+  left: 26%;
+}
+
+.two {
+  top: 24%;
+  right: 12%;
+}
+
+.three {
+  right: 10px;
+  top: 44.5%;
+}
+
+.four {
+  right: 22px;
+  top: 65%;
+}
+
+.five {
+  right: 48px;
+  top: 81%;
+}
+
+.six {
+  bottom: 2px;
+  left: 48%;
+}
+
+.seven {
+  left: 48px;
+  top: 81%;
+}
+
+.eight {
+  left: 22px;
+  top: 65%;
+}
+
+.nine {
+  left: 10px;
+  top: 44.5%;
+}
+
+.ten {
+  top: 25%;
+  left: 10%;
+}
+.hour__tick{
+    font-size: 14px;
+    color: black;
+    text-shadow: 1px 1px 1px white;
+}
+.timezone__span{
+    color:white;
+    font-size: 15px;
+    left: 42px;
+    top: 110px;
+    text-shadow: 1px 2px 2px black;
+    z-index: 999999;
+}

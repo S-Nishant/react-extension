@@ -9,6 +9,7 @@ import FooterLink from './FooterLink';
 import { getDatabase, ref, set, get,child } from "firebase/database";
 import Attendance from './Attendance';
 import Settings from './Settings';
+import ClockNew from './ClockNew';
 
 function MainDashboard(props) {
     
@@ -108,11 +109,17 @@ function MainDashboard(props) {
 
                       <div className="row pt-4 pb-2">
                         <div className="clock__container">
-                          <Clock timeZone="default"/>    
-                          <Clock timeZone="custom"/>        
+                          {/* <Clock timeZone="default"/>    
+                          <Clock timeZone="custom"/>         */}
                         </div>             
                       </div>
-                      <div className="row">
+                      <div style={{position: 'absolute',top: '130px',right: '400px',width:'0px',height:'0px'}}>
+                      <ClockNew customTime={false} />
+                      <div style={{position: 'absolute',top: '0px',right: '-258px',width:'0px',height:'0px'}}>
+                      <ClockNew customTime={true} />
+                      </div>
+                      </div>
+                      <div className="row" style={{marginTop:'150px'}}>
                       <div className="col-md-3"></div>
                       <div className="col-md-9 pt-2 mt-2">
                           <ToDoForm updateFlag={updateFlag} setUpdateFlag={setUpdateFlag} addTask={addTask}/>
