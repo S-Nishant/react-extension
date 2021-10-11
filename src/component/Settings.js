@@ -27,6 +27,7 @@ function Settings(props) {
     const handleChange = (e) =>{
       console.log(e.target.value)
       localStorage.setItem('timezone',e.target.value);
+      props.timezoneTriggerFunction();
     }
     const toggleSettings = (e) =>{
         setSettingsFlag(!showSettingsFlag);        

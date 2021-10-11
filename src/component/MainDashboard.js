@@ -18,7 +18,6 @@ function MainDashboard(props) {
   const [ dynamicToDoList, setDynamicTodoList ] = useState([]);
   const [ firstName, setfirstName] = useState('');
   const [ IframeSrc, setIframeSrc] = useState('');
-  const [displayFrame, setdisplayFrame] = useState(false);
   const [salutaion, setsalutaion] = useState("Hi");
   const handleToggle = (id) => {
     let mapped = toDoList.map(task => {
@@ -26,7 +25,10 @@ function MainDashboard(props) {
     });
     setToDoList(mapped);
   }
-
+  const [changeTimezoneTrigger, setchangeTimezoneTrigger] = useState(0)
+  const triggerTimezone = () =>{
+    setchangeTimezoneTrigger(changeTimezoneTrigger+1)
+  }
   const handleFilter = () => {
     let filtered = toDoList.filter(task => {
       return !task.complete;
@@ -116,7 +118,7 @@ function MainDashboard(props) {
                       <div style={{position: 'absolute',top: '130px',right: '400px',width:'0px',height:'0px'}}>
                       <ClockNew customTime={false} />
                       <div style={{position: 'absolute',top: '0px',right: '-258px',width:'0px',height:'0px'}}>
-                      <ClockNew customTime={true} />
+                      <ClockNew customTime={true} changeTimezoneTrigger={changeTimezoneTrigger} />
                       </div>
                       </div>
                       <div className="row" style={{marginTop:'150px'}}>
@@ -129,7 +131,7 @@ function MainDashboard(props) {
                     </div>
                 </div>
                 </div>
-                <Settings setUserLoggedIn={props.setUserLoggedIn}></Settings>
+                <Settings timezoneTriggerFunction={triggerTimezone} setUserLoggedIn={props.setUserLoggedIn}></Settings>
                 <FooterLink></FooterLink>
         </div>
     )

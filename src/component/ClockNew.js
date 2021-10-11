@@ -10,10 +10,18 @@ export default class ClockNew extends Component {
     this.state = {
       time: new Date(),
       customDate: customDate,
-      custom: props.customTime
+      custom: props.customTime,
+      timezone: this.getTimeZone.timeZone.split('/')[this.getTimeZone.timeZone.split('/').length-1]
     };
   }
-
+  componentWillReceiveProps(nextProps){
+    if(JSON.stringify(this.props.changeTimezoneTrigger) !== JSON.stringify(nextProps.changeTimezoneTrigger)){
+        let x = localStorage.getItem('timezone') ? { timeZone:localStorage.getItem('timezone')} :{ timeZone: "America/New_York" }
+      this.setState({
+        timezone: x.timeZone.split('/')[x.timeZone.split('/').length-1]
+      });
+        }
+    }
   componentDidMount() {
     this.timerId = setInterval(() => {
         const getTimeZone = localStorage.getItem('timezone') ? { timeZone:localStorage.getItem('timezone')} :{ timeZone: "America/New_York" };
@@ -35,7 +43,7 @@ export default class ClockNew extends Component {
     return (
       <div className="clock">
           <span className="timezone__span">
-          {this.state.custom ?this.getTimeZone.timeZone.split('/')[this.getTimeZone.timeZone.split('/').length-1]:'India' }
+          {this.state.custom ? this.state.timezone:'India' }
           </span>
         <div
           className="hour_hand"
