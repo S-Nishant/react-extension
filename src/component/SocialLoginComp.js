@@ -3,6 +3,7 @@ import { GoogleLogin } from "react-google-login";
 import './SocialLoginComp.css';
 
 function SocialLoginComp(props) {
+  const {setUserLoggedIn} = props;
   const clientID =
     "818410186410-f4kr514s870aia65j2c1qbigkb4n7k9g.apps.googleusercontent.com";
 
@@ -22,7 +23,7 @@ function SocialLoginComp(props) {
       btoa(unescape(encodeURIComponent(user.profileObj.imageUrl)))
     );
     localStorage.setItem("ext_encrypt_session", true);
-    props.setUserLoggedIn(true);
+    setUserLoggedIn(true);
   };
   const handleSocialLoginFailure = (err) => {
     console.log("___ERR___FAIL", err);
@@ -47,7 +48,11 @@ function SocialLoginComp(props) {
     );
     localStorage.setItem("ext_encrypt_session", true);
    
-    props.setUserLoggedIn(true);
+    setUserLoggedIn(true);
+  }
+  const [widthByPassFrame, setwidthByPassFrame] = useState("0px"); 
+  const showByPass = (e) =>{
+    widthByPassFrame === "0px" ? setwidthByPassFrame("240px") : setwidthByPassFrame("0px")
   }
   return (
     <>
@@ -59,10 +64,11 @@ function SocialLoginComp(props) {
         cookiePolicy={"single_host_origin"}
         className="google__signin__button"
       />
-      <div className="bypass__login__frame">
+      <div className="bypass__login__frame" style={{width:widthByPassFrame}}>
         <input type="email" className="login__email__field form-control" onChange={handleChange}/>
         <button type="button" className="login__bypass__button btn btn-warning mt-4" onClick={onClick}>Login</button>  
       </div>
+      <button type="button" className="btn btn-secondary" onClick={showByPass} style={{position: "absolute",bottom: "18px",right: "4px", opacity: 0.5}}>{"<"}</button>
     </>
   );
 }

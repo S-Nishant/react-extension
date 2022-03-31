@@ -1,0 +1,127 @@
+.red{
+    color: red;
+}
+
+body{
+    /* background-image: url('https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'); */
+    /* background-image: url(
+        'https://images.pexels.com/photos/210186/pexels-photo-210186.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940')
+        ; */
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.todo {
+    cursor: pointer;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 2px 4px;
+}
+.todo div {
+    /* text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; */
+}
+.strike {
+    text-decoration: line-through;
+    color: rgb(255, 29, 29);
+}
+.clock__container{
+    display: flex;
+    flex-direction: row-reverse;
+}
+iframe{
+    border: 5px solid cornflowerblue;
+    border-radius: 10px;
+    background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100% 100%"><text fill="white" x="50%" y="50%" font-family="\'Lucida Grande\', sans-serif" font-size="24" text-anchor="middle">Loading your Calendar..</text></svg>') 0px 0px no-repeat;
+    opacity: 0.8;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    width: inherit;
+}
+.clock__timezone{
+    /* color: #cccccc;
+    font-weight: 600; */
+    color: black;
+    position: relative;
+    left: 52px;
+    top: 98px;
+    background: white;
+    height: 22px;
+    font-weight: 700;
+    border-radius: 4px;
+}
+@keyframes progress1 {
+  0% {
+    transform: scalex(0);
+    opacity: .5;
+  }
+  90% {
+    transform: scalex(1);
+    opacity: 1;
+  }
+  92% {
+    transform: scalex(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scalex(1);
+    opacity: 0;
+  }
+}
+
+@keyframes progress2 {
+  0% {
+    transform: scale(.3,.8) translatez(0);
+    opacity: 0;
+  }
+  90% {
+    transform: scale(1,1) translatex(300px) translatez(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1,1) translatex(300px) translatez(0);
+    opacity: 0;
+  }
+}
+
+.line {
+  position: absolute;
+  top: 5%;
+  width: 100vw;
+  left: 0;
+  margin-left: -150px;
+  height: 2px;
+  background: rgba(255,255,255,.1);
+  
+  &:before {
+    animation: progress1 7s ;
+    transform-origin: 0 0;
+    content: "";
+    display: block;
+    width: 100vw;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0.05) 10%, rgba(255,255,255,0.4) 80%, rgba(255, 255, 255, 0.404));
+  }
+  
+  &:after {
+    content: "";
+    position: absolute;
+    animation: progress2 10s infinite;
+    transform-origin: 90% 50%;
+    margin-left: 24px;
+    top: -5px;
+    width: 10px;
+    height: 7px;
+    border-radius: 2px;
+    background: rgba(210,189,255,.55);
+    filter: blur(8px);
+    box-shadow: 0 0 10px 6px rgba(210,189,255,.4),
+                -20px 0 15px 4px rgba(210,189,255,.3),
+                -40px 0 15px 2px rgba(210,189,255,.2),
+                -60px 0 10px 1px rgba(210,189,255,.1),
+                -80px 0 10px 1px rgba(210,189,255,.05);
+  }
+}

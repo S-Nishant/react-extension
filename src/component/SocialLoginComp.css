@@ -1,6 +1,7 @@
 .bypass__login__frame{
-    position: absolute;
+    position: fixed;
     bottom: 80px;
-    right: 12px;
-    width: 200px;
+    right: -18px;
+    width: 0px;
+    transition: 5s width;
 }
