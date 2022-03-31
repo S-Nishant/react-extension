@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './EditModal.css';
 import { getDatabase, ref, set } from "firebase/database";
 function EditModal(props) {
+    const {id,data,closeModal} = props;
     useEffect(() => {
-        settodoTask(props.data.task);
+        settodoTask(data.task);
     }, []);
 
     const [todoTask, settodoTask] = useState("");
@@ -15,22 +16,22 @@ function EditModal(props) {
         console.log('This is new value that needs to get updated :)',todoTask)
         e.preventDefault()
         let userRef = getDatabase();
-        let todoIdRef = props.id;
+        let todoIdRef = id;
         let updated_json = {
-            ...props.data,
+            ...data,
             task: todoTask
         }
         set(ref(userRef, 'ToDoTable/'+todoIdRef), updated_json);
-        props.closeModal();
+        closeModal();
     }
     return (
         <div className="container-fluid modal__container">
             <textarea className="modal__textArea"
-            rows="14" cols="90" defaultValue={props.data.task} onChange={changeTask}
+            rows="22" cols="140" defaultValue={data.task} onChange={changeTask}
             >
             </textarea>
                 <button type="button" id="todo__btn__save" className="btn btn-success ms-2 me-1" onClick={updateTodo}>Save</button>
-                <button type="button" id="todo__btn__cancel" className="btn btn-danger" onClick={props.closeModal}>Cancel</button>
+                <button type="button" id="todo__btn__cancel" className="btn btn-danger" onClick={closeModal}>Cancel</button>
         </div>
     )
 }

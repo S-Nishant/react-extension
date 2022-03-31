@@ -2,10 +2,11 @@ import React, { useState } from 'react'
 import AnalogClock from 'analog-clock-react';
 
 function Clock(props) {
-    // console.log(props.timeZone)  
+    // console.log(timeZone)  
+  const { timeZone } = props;
   
     let options = {};
-    if(props.timeZone === 'default'){
+    if(timeZone === 'default'){
          options = {
             width: "120px",
             border: true,
@@ -54,13 +55,13 @@ function Clock(props) {
           })
         //   console.log(customDate.getHours())
       }  
-      if(props.timeZone !== 'default'){
+      if(timeZone !== 'default'){
           setInterval(updateClock, 1000);
       }
     return (
       <>
             <AnalogClock {...custOption} /> 
-            <span className="clock__timezone">{props.timeZone !== 'default'?getTimeZone.timeZone.split('/')[getTimeZone.timeZone.split('/').length-1]:'India' }</span>
+            <span className="clock__timezone">{timeZone !== 'default'?getTimeZone.timeZone.split('/')[getTimeZone.timeZone.split('/').length-1]:'India' }</span>
       </>
     )
 }

@@ -3,6 +3,8 @@ import { GoogleLogout } from 'react-google-login';
 import './Settings.css'
 const ct = require('countries-and-timezones');
 function Settings(props) {
+
+  const { setUserLoggedIn, timezoneTriggerFunction } = props;
   const settingWrapperRef = useRef(null);
   
 
@@ -18,7 +20,7 @@ function Settings(props) {
       localStorage.removeItem('ext_encrypt_imageUrl');
       localStorage.removeItem('ext_encrypt_session');
       localStorage.removeItem('timezone');
-      props.setUserLoggedIn(false);
+      setUserLoggedIn(false);
     }
     const handleSocialLogoutFailure = (err) =>{
       console.log('Logout + Fail')
@@ -27,7 +29,7 @@ function Settings(props) {
     const handleChange = (e) =>{
       console.log(e.target.value)
       localStorage.setItem('timezone',e.target.value);
-      props.timezoneTriggerFunction();
+      timezoneTriggerFunction();
     }
     const toggleSettings = (e) =>{
         setSettingsFlag(!showSettingsFlag);        
