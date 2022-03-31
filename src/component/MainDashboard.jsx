@@ -4,22 +4,22 @@ import "./TodoList.css";
 import ToDoForm from './TodoForm';
 import TodoList from './TodoList';
 import data from "./data.json";
-import Clock from './Clock';
 import FooterLink from './FooterLink';
-import { getDatabase, ref, set, get,child } from "firebase/database";
+import { getDatabase, ref, get,child } from "firebase/database";
 import Attendance from './Attendance';
 import Settings from './Settings';
 import ClockNew from './ClockNew';
 import News from './News/News';
 
 function MainDashboard(props) {
-    
+  const { setUserLoggedIn } = props;
   const [ toDoList, setToDoList ] = useState(data);
   const [ updateFlag, setUpdateFlag ] = useState(0);
   const [ dynamicToDoList, setDynamicTodoList ] = useState([]);
   const [ firstName, setfirstName] = useState('');
   const [ IframeSrc, setIframeSrc] = useState('');
   const [salutaion, setsalutaion] = useState("Hi");
+
   const handleToggle = (id) => {
     let mapped = toDoList.map(task => {
       return task.id === Number(id) ? { ...task, complete: !task.complete } : { ...task};
@@ -135,7 +135,7 @@ function MainDashboard(props) {
                     </div>
                 </div>
                 </div>
-                <Settings timezoneTriggerFunction={triggerTimezone} setUserLoggedIn={props.setUserLoggedIn}></Settings>
+                <Settings timezoneTriggerFunction={triggerTimezone} setUserLoggedIn={setUserLoggedIn}></Settings>
                 <FooterLink></FooterLink>
         </div>
     )
