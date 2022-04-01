@@ -124,7 +124,7 @@ function MainDashboard(props) {
   }, [updateFlag]);
 
   return (
-    <div className="fluid pe-1">
+    <div className="fluid pe-1 w3-animate-right">
         <div className="row">
           <div className="line"></div>
         </div>
@@ -144,19 +144,19 @@ function MainDashboard(props) {
       </div>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-md-5">
+          <div className="col-md-3">
             <iframe
               id="google__calendar"
               key="1"
               title="cal"
               src={IframeSrc}
-              height="520"
+              height="320"
               width="100%"
               frameBorder="0"
               scrolling="no"
             ></iframe>
           </div>
-          <div className="col-md-1"></div>
+          <div className="col-md-3" style={{height: "95vh"}}></div>
           <div className="col-md-6">
             <div className="row pt-4 pb-2">
               <div className="clock__container">

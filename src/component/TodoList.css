@@ -16,8 +16,9 @@ input.add__todo__input:focus-visible {
 .add__todo__button{
     background: black;
     border: 2px solid black;
-    height: 39px;
+    height: 40px;
     border-top-right-radius: 10px;
+    width: 46px;
 }
 .todoList__noTaskPlaceholder{
     color: white;

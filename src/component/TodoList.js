@@ -7,25 +7,26 @@ import { collection,doc, onSnapshot,setDoc  } from "firebase/firestore";
 import { getDatabase, ref, set, get,child } from "firebase/database";
 
 const ToDoList = (props) => {
-const [dynamicTodoList,setTodoList] = useState([]);
-
-useEffect(() => {
-    console.log('API todoList ',props.dynamicToDo)
+    const { dynamicToDo ,handleToggle , setUpdateFlag, updateFlag, handleFilter } = props;
+    const [dynamicTodoList,setTodoList] = useState([]);
+    
+    useEffect(() => {
+    console.log('API todoList ',dynamicToDo)
     //sort incomplete items to the top
-    props.dynamicToDo.sort((a,b)=>{return a.complete-b.complete})
-    setTodoList(props.dynamicToDo)
+    dynamicToDo.sort((a,b)=>{return a.complete-b.complete})
+    setTodoList(dynamicToDo)
     
     // deletes | reference can be performed as below
     // let userRef = getDatabase();
     // set(ref(userRef, 'ToDoTable/26fe5db0-65a3-47da-bacb-90a727df8ff4'), null);
         
-    }, [props.dynamicToDo]);
+    }, [dynamicToDo]);
 
     return (
         <div className="col-md-12 todo__container">
             {dynamicTodoList.map(todo => {
                 return (
-                    <ToDo todo={todo} handleToggle={props.handleToggle} updateFlag={props.updateFlag} setUpdateFlag={props.setUpdateFlag} handleFilter={props.handleFilter} key={todo.id} />
+                    <ToDo todo={todo} handleToggle={handleToggle} updateFlag={updateFlag} setUpdateFlag={setUpdateFlag} handleFilter={handleFilter} key={todo.id} />
                 )
             })}
             {dynamicTodoList.length === 0? 

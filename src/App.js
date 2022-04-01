@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 // import { collection,query, where, collectionGroup,getDocs } from 'firebase/firestore/lite';
 import SocialLoginComp from './component/SocialLoginComp';
 import Background from './component/DumbComponet/Background';
+import EditorComponent from './component/ToDo/Editor';
 
 function App() {
   const [ userLoggedIn, setUserLoggedIn ] = useState(false);
@@ -19,6 +20,7 @@ function App() {
   
   return (
     <div className="App">
+      {/* <EditorComponent></EditorComponent> */}
       <Background></Background>
       {userLoggedIn ?
           <MainDashboard setUserLoggedIn={setUserLoggedIn}></MainDashboard>

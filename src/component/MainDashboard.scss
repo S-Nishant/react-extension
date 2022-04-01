@@ -12,11 +12,17 @@ body{
 }
 
 .todo {
+    // cursor: pointer;
+    // text-overflow: ellipsis;
+    // overflow: hidden;
+    // white-space: nowrap;
+    // padding: 2px 4px;
     cursor: pointer;
     text-overflow: ellipsis;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: break-spaces;
     padding: 2px 4px;
+    max-height: 24px;
 }
 .todo div {
     /* text-overflow: ellipsis;
@@ -33,7 +39,7 @@ body{
 }
 iframe{
     border: 5px solid cornflowerblue;
-    border-radius: 10px;
+    border-radius: 10px 80px;
     background: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100% 100%"><text fill="white" x="50%" y="50%" font-family="\'Lucida Grande\', sans-serif" font-size="24" text-anchor="middle">Loading your Calendar..</text></svg>') 0px 0px no-repeat;
     opacity: 0.8;
     position: absolute;
@@ -68,7 +74,7 @@ iframe{
   }
   100% {
     transform: scalex(1);
-    opacity: 0;
+    opacity: 1;
   }
 }
 
@@ -77,12 +83,12 @@ iframe{
     transform: scale(.3,.8) translatez(0);
     opacity: 0;
   }
-  90% {
-    transform: scale(1,1) translatex(300px) translatez(0);
+  60% {
+    transform: scale(1,1) translatex(550px) translatez(0);
     opacity: 1;
   }
   100% {
-    transform: scale(1,1) translatex(300px) translatez(0);
+    transform: scale(1,1) translatex(700px) translatez(0);
     opacity: 0;
   }
 }
@@ -92,8 +98,7 @@ iframe{
   top: 5%;
   width: 100vw;
   left: 0;
-  margin-left: -150px;
-  height: 2px;
+  height: 5px;
   background: rgba(255,255,255,.1);
   
   &:before {
@@ -109,7 +114,7 @@ iframe{
   &:after {
     content: "";
     position: absolute;
-    animation: progress2 10s infinite;
+    animation: progress2 8s infinite;
     transform-origin: 90% 50%;
     margin-left: 24px;
     top: -5px;

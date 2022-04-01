@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { getDatabase, ref, set, get,child } from "firebase/database";
 const ToDoForm = (props) => {
-
+    const { addTask, updateFlag , setUpdateFlag } = props;
     const [ userInput, setUserInput ] = useState('');
 
     const handleChange = (e) => {
@@ -10,7 +10,7 @@ const ToDoForm = (props) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        props.addTask(userInput);
+        addTask(userInput);
         setUserInput("");
     }
     const UUIDGenerator = ()=> {
@@ -31,7 +31,7 @@ const ToDoForm = (props) => {
         "complete": false,
         "timestamp": new Date().toISOString()
         });
-        props.setUpdateFlag((props.updateFlag)+1);
+        setUpdateFlag((updateFlag)+1);
     }
     return (
         <form onSubmit={handleSubmit} className="col-md-12 add__form__container">

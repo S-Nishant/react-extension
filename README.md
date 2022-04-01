@@ -3,7 +3,8 @@
 
 ## npm run-script build
 
-
+## Firebase :
+### Only single collection ToDoTable is being used currently to map emial with todo list..
 
 
 !DOCTYPE html>
