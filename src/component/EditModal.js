@@ -2,11 +2,10 @@ import React, { useEffect, useState } from 'react';
 import './EditModal.css';
 import { getDatabase, ref, set } from "firebase/database";
 import Editor from './ToDo/Editor';
-import { toast } from "react-toast";
 
 function EditModal(props) {
-    toast.success("Message sent successfully!");
-    const {id,data,closeModal} = props;
+    const { id, data, closeModal, toastNotification } = props;
+
     useEffect(() => {
         settodoTask(data.task);
     }, []);
@@ -25,8 +24,8 @@ function EditModal(props) {
             ...data,
             task: todoTask
         }
+        toastNotification("List updated!");
         set(ref(userRef, 'ToDoTable/'+todoIdRef), updated_json);
-        toast.success("Message sent successfully!");
         closeModal();
     }
     return (

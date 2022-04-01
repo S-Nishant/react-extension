@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { getDatabase, ref, set } from "firebase/database";
 import EditModal from './EditModal';
 import parse from 'html-react-parser';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ToDo = (props) => {
     const { todo, updateFlag, setUpdateFlag, handleToggle } = props;
@@ -21,17 +23,12 @@ const ToDo = (props) => {
         setUpdateFlag((updateFlag)+1);
         handleToggle(e.currentTarget.id)
     }
-    
-    const closeModal = (e) => {
-        setUpdateFlag((updateFlag)+1);
-        setopenEditModal(false);
-    }
+
     const handleEditItem = (e) =>{
-        // alert('editpopup');
         setopenEditModal(true);
         console.log(todo.task)
     }
-    
+
     const handleDeleteItem = (e) => {
         console.log('id: '+e.currentTarget.id + 'will get deleted.')
         e.preventDefault()
@@ -40,9 +37,19 @@ const ToDo = (props) => {
         set(ref(userRef, 'ToDoTable/'+todoIdRef), null);
         setUpdateFlag((updateFlag)+1);
     }
-    
+
+    const closeModal = (e) => {
+        setUpdateFlag((updateFlag)+1);
+        setopenEditModal(false);
+    }
+    const toastNotification = (notificationMessage) =>{
+        toast.success(notificationMessage,{
+            theme: "dark"
+          });
+    };
     return (
         <div className="list-item">
+            <ToastContainer autoClose={1000}/>
             <div className="row">
             <div id={todo.id} key={todo.id + todo.task} name="todo" value={todo.id} className="col-md-10">
                 <div  className={todo.complete ? "todo strike" : "todo"} data={todo} id={todo.id} onClick={handleClick} >{parse(todo.task)}</div>
@@ -58,7 +65,7 @@ const ToDo = (props) => {
                 
             </div>
             {openEditModal?
-            <EditModal data={todo} id={todo.id} closeModal={closeModal}/>
+            <EditModal data={todo} id={todo.id} closeModal={closeModal} toastNotification={toastNotification}/>
             :
             ""
             }
