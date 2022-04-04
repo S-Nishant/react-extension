@@ -13,10 +13,9 @@
     "128" : "logo192.png"
     },
   "permissions": ["tabs","identity"],
-  "content_security_policy": "script-src 'self' 'https://accounts.google.com' https://cdn.firebase.com https://*.firebaseio.com https://www.googletagmanager.com https://apis.google.com  'sha256-ippYeTKwyckwToUISglmXK5Vk4qs9K2ub6yijBo2E3A=' 'unsafe-eval'; object-src 'self'",
+  "content_security_policy": "script-src 'self' 'https://accounts.google.com' https://cdn.firebase.com https://*.firebaseio.com https://www.googletagmanager.com https://apis.google.com  'sha256-5xEaCfd2EBv4r6xfPaFB1qusM+YTB0wOfyVgS/TTyn4=' 'unsafe-eval'; object-src 'self'",
   "chrome_url_overrides" : {
     "newtab": "index.html"
   },
   "key":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvonJJEG0yCXNOmJjtZ15r8EXaWKyLK0EpG3+br8JsoVKAhfkN6iyhoazMjjfWg9cYkt8OWp2lUbfQh8aqHL1qxSOkUWKn5/poFmE9+j9DqO6DcAu5cTglDN/8JBPAXUUIdBzJTKfYfjrkmjnaejn94dBGr4jPrFSxNVXfcC8ZAiFdqmF/ixJxxvQATC95F6F8IY7dbdI9YWnvqZl34Kn9w7iMw/bcco+ZSv/+C2V+rqMMb7uI/c/+Gz3xi1rYyA62ziU/HOpdrMQvrC1l/nB7gAbScNFUUhWIO1J6LNPtTaGcxjWXA12Puf8TTUClln4a2WKmi6SPJSLUy1ilBDRTwIDAQAB"
- 
 }
